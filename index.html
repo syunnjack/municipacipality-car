@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>全国車買取ナビ｜都道府県・市区町村別の車査定情報</title>
+    <meta name="description" content="全国47都道府県の車買取・車査定情報を地域別に紹介。地域ごとの気候や需要傾向を踏まえた愛車の高価買取のコツをまとめています。" />
+    <meta property="og:site_name" content="全国車買取ナビ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://municipality-car.jp/og-image.png" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"全国車買取ナビ","url":"https://municipality-car.jp/"}</script>
+
+    <!-- GitHub Pages SPA deep-link redirect support -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&')
+            })
+            .join('?')
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash)
+        }
+      })(window.location)
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PKSFSL0DC3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PKSFSL0DC3');
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

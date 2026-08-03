@@ -1,0 +1,91 @@
+:root {
+  --accent: #1f6f43;
+  --bg: #f7f8f5;
+  --text: #1c1f1a;
+  --muted: #5b6259;
+  --border: #dde3da;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Hiragino Sans', 'Yu Gothic', system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+.hero h1 {
+  font-size: 1.9rem;
+  margin-bottom: 8px;
+}
+
+.hero p {
+  color: var(--muted);
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-top: 32px;
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+}
+
+.region-section {
+  margin-top: 28px;
+}
+
+.prefecture-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 6px 16px;
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.prefecture-list li {
+  border-bottom: 1px solid var(--border);
+  padding: 6px 0;
+}
+
+.prefecture-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.prefecture-list a:hover {
+  text-decoration: underline;
+}
+
+.guide ul,
+.pref-guide ul,
+.pref-docs ul {
+  padding-left: 1.2em;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 20px 0;
+}
+
+.breadcrumb a {
+  color: var(--accent);
+}
+
+.pref-note {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
