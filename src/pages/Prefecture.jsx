@@ -1,6 +1,7 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import Seo from '../components/Seo'
 import { getPrefectureBySlug, REGIONS } from '../data/prefectures'
+import { getCitiesByPrefecture } from '../data/cities'
 
 export default function Prefecture() {
   const { slug } = useParams()
@@ -11,6 +12,7 @@ export default function Prefecture() {
   }
 
   const regionName = REGIONS.find((r) => r.id === pref.region)?.name ?? ''
+  const cities = getCitiesByPrefecture(pref.slug)
 
   return (
     <div className="page">
@@ -29,6 +31,19 @@ export default function Prefecture() {
         <h2>{pref.name}で車を売る際のポイント</h2>
         <p>{pref.note}</p>
       </section>
+
+      {cities.length > 0 && (
+        <section className="region-section">
+          <h2>{pref.name}の主要都市別ガイド</h2>
+          <ul className="prefecture-list">
+            {cities.map((city) => (
+              <li key={city.slug}>
+                <Link to={`/${pref.slug}/${city.slug}/`}>{city.name}の車買取・車査定情報</Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="pref-guide">
         <h2>査定額を上げるためにできること</h2>
