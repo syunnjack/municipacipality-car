@@ -1,6 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import Seo from '../components/Seo'
-import { getPrefectureBySlug, REGIONS } from '../data/prefectures'
+import { getPrefectureBySlug, REGIONS, getVehicleCountRank, getPerHouseholdRank } from '../data/prefectures'
 import { getCitiesByPrefecture } from '../data/cities'
 
 export default function Prefecture() {
@@ -13,6 +13,8 @@ export default function Prefecture() {
 
   const regionName = REGIONS.find((r) => r.id === pref.region)?.name ?? ''
   const cities = getCitiesByPrefecture(pref.slug)
+  const vehicleRank = getVehicleCountRank(pref.slug)
+  const householdRank = getPerHouseholdRank(pref.slug)
 
   return (
     <div className="page">
@@ -30,6 +32,27 @@ export default function Prefecture() {
       <section className="pref-note">
         <h2>{pref.name}で車を売る際のポイント</h2>
         <p>{pref.note}</p>
+      </section>
+
+      <section className="pref-stats">
+        <h2>{pref.name}の自動車保有データ</h2>
+        <table className="stats-table">
+          <tbody>
+            <tr>
+              <th>自動車保有台数</th>
+              <td>{pref.vehicleCount.toLocaleString()}台(全国{vehicleRank}位)</td>
+            </tr>
+            <tr>
+              <th>世帯当たり普及台数</th>
+              <td>{pref.perHousehold.toFixed(3)}台/世帯(全国{householdRank}位)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p className="stats-source">
+          出典:
+          <a href="https://www.airia.or.jp/publish/statistics/number.html" target="_blank" rel="noopener noreferrer">一般財団法人 自動車検査登録情報協会「自動車保有台数」</a>
+          (保有台数は2022年12月末時点、世帯当たり普及台数は2021年時点のデータ)
+        </p>
       </section>
 
       {cities.length > 0 && (

@@ -30,6 +30,23 @@ export default function City() {
         <p>{city.note}</p>
       </section>
 
+      {city.population && (
+        <section className="pref-stats">
+          <h2>{city.name}の人口データ</h2>
+          <table className="stats-table">
+            <tbody>
+              <tr>
+                <th>人口</th>
+                <td>{city.population.toLocaleString()}人</td>
+              </tr>
+            </tbody>
+          </table>
+          <p className="stats-source">
+            出典: <a href="https://uub.jp/rnk/c_j.html" target="_blank" rel="noopener noreferrer">都道府県市区町村「全国の市 人口ランキング」</a>
+          </p>
+        </section>
+      )}
+
       <section className="pref-guide">
         <h2>査定額を上げるためにできること</h2>
         <ul>
