@@ -118,3 +118,51 @@ h2 {
 .stats-source a {
   color: var(--accent);
 }
+
+.promo-banner {
+  margin-top: 28px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.promo-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.promo-heading h2 {
+  margin: 0;
+}
+
+.promo-pr {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  letter-spacing: 0.05em;
+}
+
+.promo-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.promo-list img {
+  max-width: 100%;
+  height: auto;
+}
+
+.promo-pixel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

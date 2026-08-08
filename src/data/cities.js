@@ -24,7 +24,7 @@ export const CITIES = [
   { slug: 'kawaguchi', name: '川口市', pref: 'saitama', note: '東京都心へのアクセスが良く、通勤用コンパクトカーの需要が安定しています。', population: 592007 },
   { slug: 'chiba-city', name: '千葉市', pref: 'chiba', note: '政令指定都市で沿岸部を含み、潮風による下回りの状態確認が査定ポイントです。', population: 994970 },
   { slug: 'funabashi', name: '船橋市', pref: 'chiba', note: '東京都心への通勤圏として人口が多く、車の入れ替わりも比較的早い地域です。', population: 650635 },
-  { slug: 'tokyo-23', name: '東京23区', pref: 'tokyo', note: '駐車場事情から小型車の需要が高く、都心部では実走行距離が少ない車も多い傾向です。' },
+  { slug: 'tokyo-23', name: '東京23区', pref: 'tokyo', note: '駐車場事情から小型車の需要が高く、都心部では実走行距離が少ない車も多い傾向です。', population: 9800000, populationNote: '出典: 特別区協議会「23区の人口と世帯」(2026年1月1日時点、住民基本台帳による概数)' },
   { slug: 'hachioji', name: '八王子市', pref: 'tokyo', note: '多摩地域最大の都市で、都心部とは異なりファミリー向け車種の需要も見られます。', population: 574087 },
   { slug: 'yokohama', name: '横浜市', pref: 'kanagawa', note: '日本最大の市で人口・車両流通量ともに非常に多く、査定サービスの競争が活発なエリアです。', population: 3754840 },
   { slug: 'kawasaki', name: '川崎市', pref: 'kanagawa', note: '東京都心への通勤圏として人口密度が高く、コンパクトカーの需要が高い地域です。', population: 1561132 },

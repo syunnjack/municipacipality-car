@@ -1,5 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import Seo from '../components/Seo'
+import PromoBanner from '../components/PromoBanner'
 import { getCityBySlug } from '../data/cities'
 import { getPrefectureBySlug } from '../data/prefectures'
 
@@ -42,10 +43,14 @@ export default function City() {
             </tbody>
           </table>
           <p className="stats-source">
-            出典: <a href="https://uub.jp/rnk/c_j.html" target="_blank" rel="noopener noreferrer">都道府県市区町村「全国の市 人口ランキング」</a>
+            {city.populationNote ?? (
+              <>出典: <a href="https://uub.jp/rnk/c_j.html" target="_blank" rel="noopener noreferrer">都道府県市区町村「全国の市 人口ランキング」</a></>
+            )}
           </p>
         </section>
       )}
+
+      <PromoBanner heading={`${city.name}で車を売るなら`} />
 
       <section className="pref-guide">
         <h2>査定額を上げるためにできること</h2>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import PromoBanner from '../components/PromoBanner'
 import { REGIONS, getPrefecturesByRegion } from '../data/prefectures'
 
 export default function Home() {
@@ -24,6 +25,8 @@ export default function Home() {
           <li>下回りの錆や外装の劣化は査定前に写真で状態を確認しておく</li>
         </ul>
       </section>
+
+      <PromoBanner />
 
       {REGIONS.map((region) => (
         <section key={region.id} className="region-section">

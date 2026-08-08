@@ -1,5 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import Seo from '../components/Seo'
+import PromoBanner from '../components/PromoBanner'
 import { getPrefectureBySlug, REGIONS, getVehicleCountRank, getPerHouseholdRank } from '../data/prefectures'
 import { getCitiesByPrefecture } from '../data/cities'
 
@@ -54,6 +55,8 @@ export default function Prefecture() {
           (保有台数は2022年12月末時点、世帯当たり普及台数は2021年時点のデータ)
         </p>
       </section>
+
+      <PromoBanner heading={`${pref.name}で車を売るなら`} />
 
       {cities.length > 0 && (
         <section className="region-section">
