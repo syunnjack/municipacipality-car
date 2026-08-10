@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://municipality-car.jp/sitemap.xml
+
+Sitemap: https://municipacipality-car.vercel.app/sitemap.xml
