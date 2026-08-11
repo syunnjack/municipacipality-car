@@ -1,19 +1,20 @@
 // vite build outputs a single dist/index.html shared by every client-side
-// route. Seo.jsx only sets <title>/description/canonical/OG tags inside a
-// useEffect, so any request that doesn't execute JS (link-preview bots,
-// crawlers that skip the render pass) sees identical metadata for all ~120
-// prefecture/city pages. This copies dist/index.html per route and swaps in
-// the same title/description each page already computes client-side, so the
-// raw HTML is correct without touching the React app itself.
+// route, so a crawler that doesn't execute JS sees an empty <div id="root">
+// with no text and no internal links on all ~120 prefecture/city pages.
+// This renders each route to static HTML with the SSR bundle built from
+// src/entry-server.jsx, and swaps in the title/description/canonical each
+// page otherwise only sets client-side from Seo.jsx.
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { PREFECTURES } from '../src/data/prefectures.js'
 import { CITIES } from '../src/data/cities.js'
 
 const SITE_URL = 'https://municipality-car.jp'
 const distDir = path.resolve('dist')
 const template = await readFile(path.join(distDir, 'index.html'), 'utf8')
+const { render } = await import(pathToFileURL(path.resolve('dist-ssr/entry-server.js')).href)
 
 function renderPage({ title, description, routePath }) {
   const canonical = `${SITE_URL}${routePath}`
@@ -30,6 +31,7 @@ function renderPage({ title, description, routePath }) {
     `<meta property="og:url" content="${canonical}" />`,
   ].join('\n    ')
   html = html.replace('</head>', `    ${headTags}\n  </head>`)
+  html = html.replace('<div id="root"></div>', `<div id="root">${render(routePath)}</div>`)
   return html
 }
 
